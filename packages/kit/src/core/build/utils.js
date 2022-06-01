@@ -61,7 +61,7 @@ export const get_default_config = function ({ client_out_dir, config, input, out
 			cssCodeSplit: true,
 			manifest: true,
 			outDir: ssr ? `${output_dir}/server` : `${client_out_dir}/immutable`,
-			polyfillDynamicImport: false,
+			polyfillModulePreload: false,
 			rollupOptions: {
 				input,
 				output: {
@@ -89,7 +89,8 @@ export const get_default_config = function ({ client_out_dir, config, input, out
 		publicDir: false,
 		resolve: {
 			alias: get_aliases(config)
-		}
+		},
+		spa: false
 	};
 };
 
